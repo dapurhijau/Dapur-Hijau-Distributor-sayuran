@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapur Hijau: Sayuran Berkualitas untuk Hidup Sehat</title>
+    <!-- Tailwind CSS CDN untuk styling yang cepat dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font "Inter" untuk tipografi yang modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: url('E:\cv upe\GAMBAR PRODUK/background.jpg') /* Warna latar belakang yang lebih lembut */
+        }
+        /* Styling kustom untuk efek hover pada tombol */
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3); /* Bayangan default */
+        }
+        .btn-primary:hover {
+            background-color: #16a34a; /* Warna hijau sedikit lebih gelap saat hover */
+            transform: translateY(-3px); /* Efek naik sedikit saat hover */
+            box-shadow: 0 8px 15px rgba(34, 197, 94, 0.4); /* Bayangan lebih kuat saat hover */
+        }
+        .card-product {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1.25rem; /* Sudut lebih membulat */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Bayangan kartu produk */
+            display: flex; /* Menggunakan flexbox untuk layout internal */
+            flex-direction: column; /* Konten vertikal */
+            align-items: center; /* Pusatkan item secara horizontal */
+            text-align: center; /* Teks di tengah */
+            padding: 1.5rem; /* Padding lebih banyak */
+        }
+        .card-product:hover {
+            transform: translateY(-8px); /* Efek naik lebih jauh saat hover pada kartu produk */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Bayangan lebih kuat saat hover */
+        }
+        .card-product img {
+            width: 100%;
+            height: 160px; /* Tinggi gambar yang konsisten */
+            object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+            border-radius: 0.75rem; /* Sudut gambar yang sedikit membulat */
+            margin-bottom: 1rem;
+        }
+        .card-product h3 {
+            font-size: 1.5rem; /* Ukuran font lebih besar untuk nama produk */
+            font-weight: 600; /* Lebih tebal */
+            margin-bottom: 0.5rem;
+        }
+        .card-product .price {
+            font-size: 1.25rem; /* Ukuran font lebih besar untuk harga */
+            font-weight: 700; /* Sangat tebal */
+            color: #10b981; /* Warna hijau yang lebih cerah untuk harga */
+            margin-bottom: 0.5rem;
+        }
+        .card-product .availability {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+
+        /* Styling untuk bagian hero dengan gambar latar belakang */
+        .hero-section {
+            background-image: url('E:\cv upe\GAMBAR PRODUK/background.jpg')
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden; /* Pastikan konten tidak meluber */
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55); /* Overlay yang lebih gelap */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .section-heading {
+            font-weight: 700; /* Lebih tebal untuk judul bagian */
+            color: #2d3748; /* Warna teks yang lebih gelap */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header dan Navigasi -->
+    <header class="bg-white shadow-lg py-5 rounded-b-xl">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo Dapur Hijau -->
+            <a href="#beranda" class="text-3xl font-extrabold text-green-700 tracking-tight">Dapur Hijau</a>
+            <!-- Navigasi Utama -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#beranda" class="text-green-600 hover:text-green-700 font-semibold text-lg transition duration-300">Beranda</a>
+                <a href="#produk" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300">Produk</a>
+                <a href="#tentang-kami" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300">Tentang Kami</a>
+                <a href="#kontak" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300">Kontak</a>
+            </nav>
+            <!-- Tombol untuk mobile (hamburger menu) - tidak fungsional di sini, hanya visual -->
+            <button class="md:hidden text-gray-700 hover:text-green-600 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Bagian Hero -->
+    <section id="beranda" class="hero-section text-white py-24 md:py-40 lg:py-56 flex items-center justify-center text-center">
+        <div class="hero-content max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 drop-shadow-lg">
+                Dapur Hijau: Kesegaran Langsung dari Petani
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 font-light opacity-90">
+                Dapatkan sayuran berkualitas tinggi, panen setiap hari, dan siap diantar ke dapur Anda.
+            </p>
+            <a href="#produk" class="btn-primary bg-green-600 hover:bg-green-700 text-white px-10 py-5 rounded-full text-xl font-bold uppercase tracking-wide shadow-xl">
+                Belanja Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Bagian Mengapa Memilih Dapur Hijau -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-4xl md:text-5xl mb-14">Mengapa Memilih Dapur Hijau?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Keunggulan 1 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="text-green-600 mb-5">
+                        <svg class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Sayuran Segar Setiap Hari</h3>
+                    <p class="text-gray-600 leading-relaxed">Kami bekerja sama langsung dengan petani lokal untuk memastikan sayuran yang Anda terima adalah yang paling segar.</p>
+                </div>
+                <!-- Keunggulan 2 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="text-green-600 mb-5">
+                        <svg class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.92 12c0 2.895 1.191 5.518 3.102 7.379L12 22l5.978-4.621c1.911-1.861 3.102-4.484 3.102-7.379 0-2.895-1.191-5.518-3.102-7.379z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Berkualitas dan Bebas Pestisida</h3>
+                    <p class="text-gray-600 leading-relaxed">Komitmen kami adalah menyediakan sayuran yang aman, sehat, dan bebas dari bahan kimia berbahaya.</p>
+                </div>
+                <!-- Keunggulan 3 -->
+                <div class="bg-gray-50 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center">
+                    <div class="text-green-600 mb-5">
+                        <svg class="w-14 h-14 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Praktis dan Cepat</h3>
+                    <p class="text-gray-600 leading-relaxed">Pesan online, kami antar sampai depan pintu Anda. Hemat waktu, tanpa perlu ke pasar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Semua Produk (Full List) -->
+    <section id="produk" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-4xl md:text-5xl mb-8">Daftar Lengkap Produk Kami</h2>
+            <p class="text-lg text-gray-700 mb-12 max-w-4xl mx-auto">
+                Kami melayani pembelian dalam jumlah besar untuk kebutuhan bisnis atau industri Anda.
+                Minimal pembelian adalah **50 kg hingga 1 ton**. Untuk informasi lebih lanjut mengenai harga grosir dan pengiriman, silakan hubungi kami.
+            </p>
+
+            <!-- Sayuran Daun Section -->
+            <h3 class="section-heading text-3xl md:text-4xl mb-8 mt-12">Sayuran Daun</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Produk: Sawi Putih -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/sawi-putih.jpg" alt="Sawi Putih" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Sawi Putih</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 12.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Sawi%20Putih%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Kubis -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/kubis-hijau.jpg" alt="Kubis" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Kubis</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 12.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Kubis%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Sawi Hijau -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/sawi-hijau.jpg" alt="Sawi Hijau" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Sawi Hijau</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 9.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg- 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Sawi%20Hijau%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Bayam -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/bayam-hijau.jpg" alt="Bayam Segar" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Bayam Segar</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 20.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg/p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Bayam%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Kangkung -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/sayur-kangkung.jpg" alt="Kangkung" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Kangkung</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 17.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Kangkung%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Bawang Daun -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/bawang-daun.jpg" alt="Bawang Daun" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Bawang Daun</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 20.000 /kg </p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Bawang%20Daun%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Pakcoy -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/pakcoy-segar.jpg" alt="Pakcoy" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Pakcoy</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 12.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Pakcoy%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Seledri -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/seledri.jpg" alt="Seledri" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Seledri</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 17.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Seledri%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Selada Air -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/selada-air.jpg" alt="Selada Air" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Selada Air</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 25.000 / iket</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Selada%20Air%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Selada Keriting -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/selada-keriting.jpg" alt="Selada Keriting" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Selada Keriting</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 15.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Selada%20Keriting%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sayuran Buah & Lainnya Section -->
+            <h3 class="section-heading text-3xl md:text-4xl mb-8 mt-12">Sayuran Buah & Lainnya</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Produk: Wortel -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/wortel.jpg" alt="Wortel Segar" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Wortel Segar</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 15.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Wortel%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Buncis -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/kacang-buncis.jpg" alt="Buncis" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Buncis</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 17.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Buncis%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Brokoli -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/brokoli-hijau.jpg" alt="Brokoli" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Brokoli</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 30.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Brokoli%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Timun Sayur -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/timun-sayur.jpg" alt="Timun Sayur" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Timun Sayur</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 12.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Timun%20Sayur%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Tomat -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/tomat-sayur.jpg" alt="Tomat" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Tomat</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 20.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Tomat%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Cabe Keriting Merah -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/cabe-keriting-merah.jpg" alt="Cabe Keriting Merk" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Cabe Keriting Merah</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 40.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Cabe%20Keriting%20Merah%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Cabe Rawit Merah -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/cabe-rawit-merah.jpg" alt="Cabe Rawit Merah" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Cabe Rawit Merah</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 55.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Cabe%20Rawit%20Merah%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Cabe Rawit Hijau -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/cabe-rawit-hijau-japlak.jpg" alt="Cabe Rawit Hijau" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Cabe Rawit Hijau</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 45.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Cabe%20Rawit%20Hijau%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Jagung -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/jagung-baby.jpg" alt="Jagung" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Jagung</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 15.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Jagung%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Lobak -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/lobak-kecil.jpg" alt="Lobak" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Lobak</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 15.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Lobak%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Pare -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/pare-hijau.jpg" alt="Pare" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Pare</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 22.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Pare%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Labu Kecil -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/labu-siam-kecil.jpg" alt="Labu Kecil" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Labu Kecil</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 12.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Labu%20Kecil%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Labu Besar -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/labu-siam-besar.jpg" alt="Labu Besar" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Labu Besar</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 2.000 / buah</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Labu%20Besar%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Kembang Kol -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/kembang-kol.jpg" alt="Kembang Kol" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Kembang Kol</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 20.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Kembang%20Kol%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Terong Ungu -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/Terong-Ungu.jpg" alt="Terong Ungu" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Terong Ungu</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 15.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Terong%20Ungu%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Terong Bulat -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/Terong-Bulat.jpg" alt="Terong Bulat" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Terong Bulat</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 15.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Terong%20Bulat%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+                <!-- Produk: Kacang Panjang -->
+                <div class="card-product bg-white p-6 rounded-2xl shadow-md">
+                    <img src="E:\cv upe\GAMBAR PRODUK/Kacang-Panjang.jpg" alt="Kacang Panjang" loading="lazy">
+                    <h3 class="text-xl font-semibold mb-2">Kacang Panjang</h3>
+                    <p class="price text-green-600 font-bold text-lg mb-2">Rp 17.000 / kg</p>
+                    <p class="availability text-gray-600 text-sm mb-4">Tersedia: 10 kg - 100 kg</p>
+                    <a href="https://wa.me/6289509309395?text=Halo%20Dapur%20Hijau,%20saya%20tertarik%20dengan%20Kacang%20Panjang%20untuk%20pesanan%20besar." target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors duration-300 font-medium">
+                        Hubungi untuk Pesanan Besar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Tentang Kami -->
+    <section id="tentang-kami" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-4xl md:text-5xl mb-14">Tentang Dapur Hijau</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12 leading-relaxed">
+                Dapur Hijau berkomitmen untuk menyediakan sayuran segar langsung dari petani lokal terpercaya. Kami percaya bahwa makanan sehat adalah kunci hidup bahagia, dan kami berupaya keras untuk menghadirkan kualitas terbaik ke meja makan Anda.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+                <img src="https://images.unsplash.com/photo-1518843872993-2615617a233b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjVlMjJ8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwZmFybXxlbnwwfHx8fDE2NzgyNTg1NjU&ixlib=rb-4.0.3&q=80&w=400" alt="Kebun Organik" loading="lazy" class="w-full md:w-1/2 lg:w-1/3 rounded-2xl shadow-xl">
+                <div class="text-left md:w-1/2 lg:w-2/3">
+                    <h3 class="text-3xl font-bold mb-4">Visi Kami</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">Menjadi penyedia sayuran berkualitas terdepan yang mendukung gaya hidup sehat dan keberlanjutan lingkungan di Indonesia.</p>
+                    <h3 class="text-3xl font-bold mb-4">Misi Kami</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-3 leading-relaxed">
+                        <li>Menghubungkan petani lokal dengan konsumen secara langsung.</li>
+                        <li>Menyediakan sayuran segar dan berkualitas tinggi.</li>
+                        <li>Meningkatkan kesadaran masyarakat akan pentingnya konsumsi sayuran sehat.</li>
+                        <li>Mendukung praktik pertanian berkelanjutan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Testimoni -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-4xl md:text-5xl mb-14">Apa Kata Pelanggan Kami?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Testimoni 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <p class="text-gray-700 italic mb-6 text-lg leading-relaxed">"Sayuran dari Dapur Hijau selalu segar dan berkualitas premium. Pengirimannya cepat dan kemasannya rapi, sangat membantu saya yang sibuk!"</p>
+                    <p class="font-bold text-green-700 text-xl">- Ibu Siti, Jakarta</p>
+                </div>
+                <!-- Testimoni 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <p class="text-gray-700 italic mb-6 text-lg leading-relaxed">"Anak-anak jadi lebih suka makan sayur setelah mencoba produk dari Dapur Hijau. Rasanya beda, lebih manis, renyah, dan mereka jadi lebih sehat!"</p>
+                    <p class="font-bold text-green-700 text-xl">- Bapak Budi, Bandung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Kontak -->
+    <section id="kontak" class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-heading text-4xl md:text-5xl mb-14">Hubungi Kami</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-12 leading-relaxed">
+                Punya pertanyaan, ingin berdiskusi tentang pesanan grosir, atau hanya ingin tahu lebih banyak? Jangan ragu untuk menghubungi tim Dapur Hijau.
+            </p>
+
+            <!-- Bagian Baru: Untuk Mitra Bisnis -->
+            <div class="max-w-3xl mx-auto bg-green-50 p-8 rounded-2xl shadow-lg mb-12 border border-green-200">
+                <h3 class="text-3xl font-bold text-green-800 mb-4">Untuk Mitra Bisnis: Supermarket, Restoran, Catering, Toko Sayuran</h3>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    Dapur Hijau adalah mitra terpercaya Anda untuk pasokan sayuran segar dalam jumlah besar. Kami melayani kebutuhan **supermarket, restoran, catering, dan toko-toko sayuran** dengan kualitas terjamin dan harga bersaing.
+                </p>
+                <ul class="list-disc list-inside text-gray-700 text-left mx-auto max-w-xl mb-6 space-y-2">
+                    <li>**Kualitas Terjamin:** Sayuran segar langsung dari petani, dipanen dan dikirim dengan standar kualitas tinggi.</li>
+                    <li>**Pasokan Konsisten:** Kemampuan untuk memenuhi pesanan besar secara berkelanjutan.</li>
+                    <li>**Harga Grosir Kompetitif:** Penawaran khusus untuk pembelian dalam jumlah besar.</li>
+                    <li>**Pengiriman Fleksibel:** Opsi pengiriman yang dapat disesuaikan dengan kebutuhan bisnis Anda.</li>
+                </ul>
+                <p class="text-gray-700 font-semibold">
+                    Mari diskusikan kebutuhan bisnis Anda. Tim kami siap membantu!
+                </p>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-gray-50 p-10 rounded-2xl shadow-xl">
+                <form>
+                    <div class="mb-6 text-left">
+                        <label for="nama" class="block text-gray-700 text-base font-semibold mb-2">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-4 px-5 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="mb-6 text-left">
+                        <label for="email" class="block text-gray-700 text-base font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-4 px-5 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Masukkan email Anda">
+                    </div>
+                    <div class="mb-8 text-left">
+                        <label for="pesan" class="block text-gray-700 text-base font-semibold mb-2">Pesan Anda</label>
+                        <textarea id="pesan" name="pesan" rows="6" class="shadow-sm appearance-none border border-gray-300 rounded-lg w-full py-4 px-5 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary bg-green-600 hover:bg-green-700 text-white px-10 py-4 rounded-full text-xl font-bold shadow-lg w-full">
+                        Kirim Pesan
+                    </button>
+                </form>
+                <div class="mt-10 text-gray-700 text-lg">
+                    <p class="mb-3"><strong>Telepon:</strong> <a href="tel:+6289509309395" class="text-green-600 hover:text-green-800 transition-colors duration-300">+62 895-0930-9395</a></p>
+                    <p class="mb-3"><strong>Email:</strong> <a href="mailto:info@dapurhijau.com" class="text-green-600 hover:text-green-800 transition-colors duration-300">info@dapurhijau.com</a></p>
+                    <p><strong>Alamat:</strong> Jl. Simpang Galudra No 77, Cianjur, Indonesia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 rounded-t-xl">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-6 text-gray-400">&copy; 2025 Dapur Hijau. Semua Hak Dilindungi.</p>
+            <div class="flex justify-center space-x-8 text-lg">
+                <a href="#" class="text-gray-300 hover:text-green-400 transition-colors duration-300">Kebijakan Privasi</a>
+                <a href="#" class="text-gray-300 hover:text-green-400 transition-colors duration-300">Syarat & Ketentuan</a>
+                <a href="#" class="text-gray-300 hover:text-green-400 transition-colors duration-300">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
